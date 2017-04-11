@@ -1,0 +1,4 @@
+uint16 item_number
+uint16 item_pose
+---
+uint64 status
