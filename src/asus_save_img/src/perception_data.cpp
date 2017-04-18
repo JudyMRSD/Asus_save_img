@@ -39,7 +39,7 @@ int main(int argc, char **argv)
         srv.request.item_name = item_name; // todo
         
         bool res = client.call(srv);
-	      item_name = "";
+        item_name = "";
 
         ros::Duration(1.0).sleep();
       }

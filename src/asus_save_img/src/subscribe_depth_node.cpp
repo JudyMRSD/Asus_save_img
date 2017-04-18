@@ -99,27 +99,27 @@ uint64 status
            "item_name: "<< req.item_name <<std::endl;
 //save images
 
-    std::string name;
-    name = req.item_name;
+    std::string name,pose;
+    name = req.item_name + "_" + std::to_string(req.item_pose);
     std::string pc_name;
     pc_name = name;
     std::string depth_name;
     depth_name = name;
 
     std::cout << "COLOR"<<std::endl;
-    name = "tote"+ name + ".jpg";
+    name = name + ".jpg";
     cv::imwrite(name, kinect_color_raw->image);
     ROS_INFO("[Perception] Save image file ");
     std::cout << "COLOR2"<<std::endl;
     std::cout << name<<std::endl;
 
 
-    pc_name = "tote_pc"+ pc_name +".pcd";
-    writer.writeBinary(pc_name, *kinect_color_pc);
-    ROS_INFO("[Perception] Save PCD file ");
-    std::cout << "depth1"<<std::endl;
+    //pc_name = "pc_"+ pc_name +".pcd";
+   // writer.writeBinary(pc_name, *kinect_color_pc);
+    //ROS_INFO("[Perception] Save PCD file ");
+    //std::cout << "depth1"<<std::endl;
 
-    depth_name = "tote_depth"+ depth_name + ".jpg";
+    depth_name = "depth_"+ depth_name + ".jpg";
     cv::Mat gray_depth;
     //kinect_depth_raw->image.convertTo( gray, CV_8U, 255 ); 
     double minVal, maxVal;
